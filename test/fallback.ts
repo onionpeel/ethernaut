@@ -5,6 +5,7 @@ import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
 import {setup} from './utils/index';
 import type { Fallback } from '../typechain-types';
 
+// Goal: 1. you claim ownership of the contract; 2. you reduce its balance to 0
 
 describe('Fallback', () => {
   let deployer: SignerWithAddress;
