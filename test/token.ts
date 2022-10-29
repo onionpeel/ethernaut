@@ -33,7 +33,7 @@ describe('Token', () => {
       ethers.constants.MaxUint256
     );
 
-    console.log('bal: ', (await token.balanceOf(user2.address)).toString());
+    // console.log('bal: ', (await token.balanceOf(user2.address)).toString());
 
 
   });
