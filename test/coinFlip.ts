@@ -31,9 +31,7 @@ describe('CoinFlip', () => {
       await coinFlipCaller.callFlip();
     };
 
-    let consecutiveWins = await coinFlip.consecutiveWins();
-    console.log(consecutiveWins.toString())
-
+    expect(await coinFlip.consecutiveWins()).to.equal(ethers.BigNumber.from('10'));
   });
 
 });

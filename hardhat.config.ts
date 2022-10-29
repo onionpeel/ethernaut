@@ -26,6 +26,7 @@ const config: HardhatUserConfig = {
       // "rinkeby": process.env.<ENTER_DEPLOYER>!
     },
     user1: 1,
+    user2: 2
   },
   networks: {
     localhost: {

@@ -22,7 +22,7 @@ describe('Fallout', () => {
   });
 
 
-  it('', async () => {
+  it('Takes ownership of the contract', async () => {
     expect(await fallout.owner()).to.equal(ethers.constants.AddressZero);
     await fallout.connect(user1).Fal1out();
     expect(await fallout.owner()).to.equal(user1.address);
