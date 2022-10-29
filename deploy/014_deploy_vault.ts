@@ -8,18 +8,16 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 
   const {deployer} = await getNamedAccounts();
 
-  // If importing a dependency contract
-  const force = await deployments.get('Force');
 
- await deploy('ForceCaller', {
+ let tx = await deploy('Vault', {
     from: deployer,
     log: true,
-    args: [force.address],
-    value: ethers.utils.parseEther('15')
+    args: [ethers.utils.solidityKeccak256(["string"], ["password"])],
     // if using dependency: args: [DependencyContract.address]
   });
+
+  // console.log(tx);
 };
 export default func;
 
-func.tags = ['forceCaller'];
-func.dependencies = ['force'];
+func.tags = ['vault'];
