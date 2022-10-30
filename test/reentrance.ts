@@ -26,8 +26,8 @@ describe('Reentrance', () => {
 
 
   it('', async () => {
-    let bal = await reentrance.balanceOf(reentranceCaller.address);
-    console.log(ethers.utils.formatEther(bal))
+    // let bal = await reentrance.balanceOf(reentranceCaller.address);
+    // console.log(ethers.utils.formatEther(bal))
 
     await reentrance.connect(deployer).donate(
       deployer.address,
@@ -38,17 +38,17 @@ describe('Reentrance', () => {
       {value: ethers.utils.parseEther('1')}
     );
 
-    console.log('reentrance bal: ', ethers.utils.formatEther((await ethers.provider.getBalance(reentrance.address))))
+    // console.log('reentrance bal: ', ethers.utils.formatEther((await ethers.provider.getBalance(reentrance.address))))
 
-    let bal2 = await reentrance.balanceOf(reentranceCaller.address);
-    console.log(ethers.utils.formatEther(bal2))
+    // let bal2 = await reentrance.balanceOf(reentranceCaller.address);
+    // console.log(ethers.utils.formatEther(bal2))
 
     await reentranceCaller.connect(user1).callWithdraw({value: ethers.utils.parseEther('1')});
 
-    let bal3 = await reentrance.balanceOf(reentranceCaller.address);
-    console.log(ethers.utils.formatEther(bal3))
+    // let bal3 = await reentrance.balanceOf(reentranceCaller.address);
+    // console.log(ethers.utils.formatEther(bal3))
 
-    console.log('reentrance bal: ', ethers.utils.formatEther((await ethers.provider.getBalance(reentrance.address))))
+    // console.log('reentrance bal: ', ethers.utils.formatEther((await ethers.provider.getBalance(reentrance.address))))
   });
 
 });
