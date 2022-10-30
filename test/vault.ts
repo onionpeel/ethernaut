@@ -24,7 +24,9 @@ describe('Vault', () => {
 
   it('Forces contract to accept ETH', async () => {
     expect(await vault.locked()).to.equal(true);
-    await vault.unlock('0xb68fe43f0d1a0d7aef123722670be50268e15365401c442f8806ef83b612976b');
+
+    let password = await ethers.provider.getStorageAt(vault.address, 1);
+    await vault.unlock(password);
 
     expect(await vault.locked()).to.equal(false);
 
