@@ -11,21 +11,14 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   // If importing a dependency contract
   // const DependencyContract = await deployments.get('DependencyContract');
 
-  const bytes32Array = [];
-  for (let i = 0; i < 3; i++) {
-    let bytes32Word = ethers.utils.solidityKeccak256(['uint'], [i]);
-    // console.log(bytes32Word)
-    bytes32Array.push(bytes32Word);
-  };
-
-  await deploy('Privacy', {
+  await deploy('GatekeeperOne', {
     from: deployer,
     log: true,
-    args: [bytes32Array]
+    // args: [ethers.BigNumber.from('1000')]
     // if using dependency: args: [DependencyContract.address]
   });
 };
 export default func;
 
-func.tags = ['privacy'];
+func.tags = ['gatekeeperOne'];
 // func.dependencies = ['dependencyContract'];
