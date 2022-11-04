@@ -25,9 +25,7 @@ describe('GatekeeperTwo', () => {
     gatekeeperTwoCaller = await Promise.resolve(ethers.getContractAt('GatekeeperTwoCaller', GatekeeperTwoCallerDeployment.address) as Promise<GatekeeperTwoCaller>);
   });
 
-  /**The gateKey is found by getting this value:
-   * uint64(bytes8(keccak256(abi.encodePacked(msg.sender)))) ^ uint64(0xffffffffffffffff)
-   * 
+  /**
    * The gateKey is what allows the XOR to return the max uin64 value => uint64(0) - 1), when overflow is allowed.
    */
 
