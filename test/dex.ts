@@ -153,14 +153,14 @@ describe('Dex', () => {
 
     token1Balance = await dex.balanceOf(swappableToken1.address, user1.address);
     token2Balance = await dex.balanceOf(swappableToken2.address, user1.address);
-    console.log(token1Balance.toString());
-    console.log(token2Balance.toString()); // User1 has all of token2
+    // console.log(token1Balance.toString());
+    // console.log(token2Balance.toString()); // User1 has all of token2
     dexToken1Balance = await dex.balanceOf(swappableToken1.address, dex.address);
     dexToken2Balance = await dex.balanceOf(swappableToken2.address, dex.address);
-    console.log(dexToken1Balance.toString());
-    console.log(dexToken2Balance.toString()); // Token2 is drained from the dex contract
+    // console.log(dexToken1Balance.toString());
+    // console.log(dexToken2Balance.toString()); // Token2 is drained from the dex contract
 
-    
+    expect(dexToken2Balance).to.equal(ethers.BigNumber.from('0'));
      
   });
 
